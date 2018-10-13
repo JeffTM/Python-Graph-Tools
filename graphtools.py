@@ -58,7 +58,8 @@ def bfs(graph, marked, vertex, processingFx):
     queue = [vertex]
 
     while len(queue) != 0:
-        for adjVert in graph[vertex]:
+        front = queue[0]
+        for adjVert in graph[front]:
             if not marked[adjVert]:
                 processingFx(adjVert)
                 queue.append(adjVert)
