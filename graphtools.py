@@ -41,8 +41,6 @@ def dfs(graph, marked, vertex, processingFx):
     for adjVert in graph[vertex]:
         if not marked[adjVert]:
             dfs(graph, marked, adjVert, processingFx)
-            
-    
 
 def DFS(graph, processingFx = print):
     marked = {}
