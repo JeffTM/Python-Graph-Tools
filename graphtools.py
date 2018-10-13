@@ -1,5 +1,5 @@
 '''A basic set of functions for dealing with python graphs represented by a dictionary of nodes to adjacency lists.
-For examp graph = {'a': ['b'], 'b': ['a', 'c'], 'c': ['c']}
+For example graph = {'a': ['b'], 'b': ['a', 'c'], 'c': ['c']}
 '''
 
 import itertools
