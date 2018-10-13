@@ -55,13 +55,16 @@ def DFS(graph, processingFx = print):
 def bfs(graph, marked, vertex, processingFx):
     processingFx(vertex)
     marked[vertex] = True
+    queue = [vertex]
 
-    for adjVert in graph[vertex]:
-        processingFx(adjVert)
+    while len(queue) != 0:
+        for adjVert in graph[vertex]:
+            if not marked[adjVert]:
+                processingFx(adjVert)
+                queue.append(adjVert)
 
-    for adjVert in graph[vertex]:
-        if not marked[adjVert]:
-            bfs(graph, marked, adjVert, processingFx)
+                marked[adjVert] = True
+        queue.remove(queue[0])
 
 def BFS(graph, processingFx = print):
     marked = {}
