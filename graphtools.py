@@ -3,6 +3,7 @@ For example graph = {'a': ['b'], 'b': ['a', 'c'], 'c': ['c']}
 '''
 
 import itertools
+import collections
 
 def permute_vertices(graph):
     return itertools.permutations(graph.keys())
@@ -55,17 +56,16 @@ def DFS(graph, processingFx = print):
 def bfs(graph, marked, vertex, processingFx):
     processingFx(vertex)
     marked[vertex] = True
-    queue = [vertex]
+    queue = collections.deque([vertex])
 
     while len(queue) != 0:
-        front = queue[0]
-        for adjVert in graph[front]:
+        for adjVert in graph[queue[0]]:
             if not marked[adjVert]:
                 processingFx(adjVert)
                 queue.append(adjVert)
 
                 marked[adjVert] = True
-        queue.remove(queue[0])
+        queue.popleft()
 
 def BFS(graph, processingFx = print):
     marked = {}
