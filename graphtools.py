@@ -51,4 +51,25 @@ def DFS(graph, processingFx = print):
     for key in graph:
         if not marked[key]:
             dfs(graph, marked, key, processingFx)
+
+def bfs(graph, marked, vertex, processingFx):
+    processingFx(vertex)
+    marked[vertex] = True
+
+    for adjVert in graph[vertex]:
+        processingFx(adjVert)
+
+    for adjVert in graph[vertex]:
+        if not marked[adjVert]:
+            bfs(graph, marked, adjVert, processingFx)
+
+def BFS(graph, processingFx = print):
+    marked = {}
+
+    for key in graph:
+        marked[key] = False
+
+    for key in graph:
+        if not marked[key]:
+            bfs(graph, marked, key, processingFx)
             
