@@ -34,3 +34,23 @@ def hamiltonian_cycles(graph):
             result.append(p)
     return result
 
+def dfs(graph, marked, vertex, processingFx):
+    processingFx(vertex)
+    marked[vertex] = True
+
+    for adjVert in graph[vertex]:
+        if not marked[adjVert]:
+            dfs(graph, marked, adjVert, processingFx)
+            
+    
+
+def DFS(graph, processingFx = print):
+    marked = {}
+
+    for key in graph:
+        marked[key] = False
+
+    for key in graph:
+        if not marked[key]:
+            dfs(graph, marked, key, processingFx)
+            
